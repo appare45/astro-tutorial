@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = 'About Me';
+
+const identity = {
+	firstName: 'Katie',
+	coutnry: 'USA',
+	occupation: 'Software Engineer',
+	hobbies: ['reading', 'writing', 'coding', 'hiking', 'biking', 'swimming', 'cooking', 'baking', 'traveling', 'learning new things'],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express", "MongoDB", "SQL", "Python", "Java", "C++", "C#", "Ruby", "Rails", "Git", "GitHub", "VS Code", "Heroku", "Netlify", "Vercel", "AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "Jest", "Mocha", "Chai", "Cypress", "Selenium", "Jasmine", "Karma", "Travis CI", "Circle CI", "Jenkins", "Slack", "Trello", "Jira", "Confluence", "Postman", "Insomnia"]
+
+const happy = true
+const finished = false;
+const goal = 3;
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<h2>.. and my new Astro site!</h2>
+
+	<p>I am working through Astro's introductory tutotrial. This is the second page on my website, and it's the first one I built myself!</p>
+
+  <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+	
+	{happy && <p>I am happy to be learning Astro!</p>}
+
+	{finished ? <p>I have finished the tutorial!</p> : <p>I have {goal} more pages to build!</p>}
+
+	{goal === 3 ? <p>My goal is to build 3 pages for my site.</p> : <p>My goal is to build {goal} pages for my site.</p>}
+
+	<p>Here are a few facts about me:</p>
+	<ul>
+	<li>My name is {identity.firstName}</li>
+		<li>I live in {identity.coutnry} and I work as a {identity.occupation}.</li>
+		{
+			identity.hobbies.length >= 2 &&
+				<li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+		}
+	</ul>
+
+	<p>My skills are:</p>
+	<ul>
+		{skills.map(skill => <li class="skill">{skill}</li>)}
+	</ul>
+</BaseLayout>
